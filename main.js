@@ -43,7 +43,7 @@ const downloadPhoto = () => {
   link.click();
 }
 
-const startUp = async () => {
+const start = async () => {
   video = document.getElementById('video');
   canvas = document.getElementById('canvas');
   photo = document.getElementById('photo');
@@ -92,4 +92,4 @@ const startUp = async () => {
   clearPhoto();
 }
 
-startUp().then()
+start().then()
