@@ -7,7 +7,8 @@ let video = null;
 let canvas = null;
 let photo = null;
 let takePhotoButton = null;
-let downloadButton = null
+let downloadButton = null;
+let clearButton = null;
 
 const clearPhoto = () => {
   const context = canvas.getContext('2d')
@@ -48,6 +49,7 @@ const startUp = async () => {
   photo = document.getElementById('photo');
   takePhotoButton = document.getElementById('takePhotoButton');
   downloadButton = document.getElementById('downloadButton');
+  clearButton = document.getElementById('clearButton');
 
   // 获取摄像头的视频流
   try {
@@ -80,6 +82,10 @@ const startUp = async () => {
   downloadButton.addEventListener('click', (event) => {
     // 下载
     downloadPhoto()
+  })
+
+  clearButton.addEventListener('click', (event) => {
+    clearPhoto();
   })
 
   // 生成默认空白图片
