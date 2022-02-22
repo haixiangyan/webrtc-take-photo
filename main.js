@@ -6,7 +6,8 @@ let streaming = false;
 let video = null;
 let canvas = null;
 let photo = null;
-let startButton = null;
+let takePhotoButton = null;
+let downloadButton = null
 
 const clearPhoto = () => {
   const context = canvas.getContext('2d')
@@ -34,11 +35,19 @@ const takePhoto = () => {
   }
 }
 
+const downloadPhoto = () => {
+  const link = document.createElement('a');
+  link.download = '你的帅照.png';
+  link.href = canvas.toDataURL();
+  link.click();
+}
+
 const startUp = async () => {
   video = document.getElementById('video');
   canvas = document.getElementById('canvas');
   photo = document.getElementById('photo');
-  startButton = document.getElementById('startButton');
+  takePhotoButton = document.getElementById('takePhotoButton');
+  downloadButton = document.getElementById('downloadButton');
 
   // 获取摄像头的视频流
   try {
@@ -63,11 +72,15 @@ const startUp = async () => {
     }
   }, false)
 
-  startButton.addEventListener('click', (event) => {
+  takePhotoButton.addEventListener('click', (event) => {
     // 拍照
     takePhoto()
-    event.preventDefault()
   }, false)
+
+  downloadButton.addEventListener('click', (event) => {
+    // 下载
+    downloadPhoto()
+  })
 
   // 生成默认空白图片
   clearPhoto();
