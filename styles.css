@@ -1,0 +1,23 @@
+main {
+    padding: 24px 24px 16px;
+    display: flex;
+}
+
+video {
+    margin-right: 16px;
+    box-sizing: content-box;
+    border: 4px solid #ffaabb;
+}
+
+canvas {
+    box-sizing: content-box;
+    border: 4px solid #aabbff;
+}
+
+.actions {
+    padding: 0 24px;
+}
+
+.actions button {
+    margin-right: 16px;
+}
